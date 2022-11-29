@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
+
+import Desafio from './components/Desafio';
+import Numero from './components/Numero';
+import Propriedades from './components/Propriedades';
+import Sorteio from './components/Sorteio';
+import Recesso from './components/Recesso';
+
+
+
 function App() {
+  const [num, setNum] = useState(0);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Projeto React-Redux</h1>
+
+      <div>
+        <Desafio></Desafio>
+      </div>
+
+      <div>
+        <Numero num={num}  onMinChanged = {setNum} ></Numero>
+      </div>
+
+      <div>
+        <Propriedades texto='Qual a sua nota' aluno='Pamela' nota={num}> </Propriedades>
+      </div>
+
+      <div>
+        <Sorteio num = {num}>  </Sorteio>
+      </div>
+
+      <div> 
+        <Recesso num= {num}>  </Recesso>
+      </div>
+
     </div>
   );
 }
